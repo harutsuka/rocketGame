@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         CountDownTime = 30.0f;
         button.SetActive(false);
     }

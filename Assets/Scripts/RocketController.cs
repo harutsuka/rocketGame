@@ -18,6 +18,8 @@ public class RocketController : MonoBehaviour
     private Vector3 direction;
     public FixedJoystick Joystick;
 
+    public GameObject ResultUI;
+
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;
@@ -75,6 +77,7 @@ public class RocketController : MonoBehaviour
             {
                 heart1.SetActive(false);
                 GameObject.Find("Canvas").GetComponent<UIController>().GameOver();
+                OpenResultPanel();
             }
         }
     }
@@ -83,5 +86,14 @@ public class RocketController : MonoBehaviour
     {
         //Joystickの動き
         direction = Vector3.forward * Joystick.Vertical + Vector3.right * Joystick.Horizontal;
+    }
+    private void OpenResultPanel()
+    {
+        ResultUI.SetActive(!ResultUI.activeSelf);
+
+        if (ResultUI.activeSelf)
+        {
+            Time.timeScale = 0f;
+        }
     }
 }
