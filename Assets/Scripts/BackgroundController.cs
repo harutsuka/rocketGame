@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 背景の表示を制御するスクリプト
 public class BackgroundController : MonoBehaviour
 {
     // Start is called before the first frame update
