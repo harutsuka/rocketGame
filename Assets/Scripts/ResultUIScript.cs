@@ -8,11 +8,10 @@ public class ResultUIScript : MonoBehaviour
 {
     public GameManager gameManager;
 
-    public GameObject TitleUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,10 +22,9 @@ public class ResultUIScript : MonoBehaviour
     public void RetryButton()
     {
         gameManager.GameStart();
-        
     }
     public void HomeButton()
     {
-        TitleUI.SetActive(true);
+        gameManager.TitleScene();
     }
 }

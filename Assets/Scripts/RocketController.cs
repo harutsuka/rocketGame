@@ -61,7 +61,6 @@ public class RocketController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("hit");
         if (collision.gameObject.CompareTag("rock"))
         {
             hp--;

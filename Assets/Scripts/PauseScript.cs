@@ -33,6 +33,6 @@ public class PauseScript : MonoBehaviour
     }
     public void HomeButton()
     {
-        SceneManager.LoadScene("Title");
+        gameManager.TitleScene();
     }
 }

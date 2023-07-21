@@ -12,11 +12,12 @@ public class GameManager : MonoBehaviour
     public Text ResultText;
     public GameObject ResultUI;
 
-    
+    public GameObject TitleUI;
 
     public float CountDownTime;
     public Text CountDownText;
 
+    public static bool isPlaying = false;
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TitleScene();
         Time.timeScale = 1;
         CountDownTime = 20.0f;
     }
@@ -47,6 +49,8 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
         score = 0;
+        isPlaying = true;
+        Debug.Log(isPlaying);
     }
 
     public void GameEnd()
@@ -62,6 +66,11 @@ public class GameManager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
+    }
+    public void TitleScene()
+    {
+        TitleUI.SetActive(true);
+        isPlaying = false;
     }
 
 }
