@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RocketController : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    float xLimit = 2.25f;
+    float xLimit = 2.15f;
     public int hp = 3;
 
     public GameObject heart1;
@@ -19,17 +20,19 @@ public class RocketController : MonoBehaviour
     public FixedJoystick Joystick;
 
     public GameObject ResultUI;
+    public Text ScoreText;
 
-    private void Awake()
-    {
-        QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 60;
-    }
+    public GameManager gameManager;
+
+    public GameObject rocket;
+
+    public AudioClip SE;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,14 +50,13 @@ public class RocketController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bulletPrefab, new Vector3(transform.position.x,transform.position.y + 0.7f,transform.position.z), Quaternion.identity);
+            audioSource.PlayOneShot(SE);
         }
 
         //動ける範囲の固定
         Vector3 currentPos = transform.position;
         currentPos.x = Mathf.Clamp(currentPos.x, -xLimit, xLimit);
         transform.position = currentPos;
-
-        
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -76,10 +78,16 @@ public class RocketController : MonoBehaviour
             if (hp <= 0)
             {
                 heart1.SetActive(false);
-                GameObject.Find("Canvas").GetComponent<UIController>().GameOver();
-                OpenResultPanel();
+                gameManager.GameEnd();
+
             }
         }
+    }
+
+    public void Tap()
+    {
+        Instantiate(bulletPrefab, new Vector3(rocket.transform.position.x, rocket.transform.position.y + 0.7f, rocket.transform.position.z), Quaternion.identity);
+        audioSource.PlayOneShot(SE);
     }
 
     private void FixedUpdate()
@@ -87,13 +95,5 @@ public class RocketController : MonoBehaviour
         //Joystickの動き
         direction = Vector3.forward * Joystick.Vertical + Vector3.right * Joystick.Horizontal;
     }
-    private void OpenResultPanel()
-    {
-        ResultUI.SetActive(!ResultUI.activeSelf);
-
-        if (ResultUI.activeSelf)
-        {
-            Time.timeScale = 0f;
-        }
-    }
+    
 }

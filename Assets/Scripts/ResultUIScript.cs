@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-public class RetryButtonScript : MonoBehaviour
+public class ResultUIScript : MonoBehaviour
 {
-    public Text scoreText;
-    int score;
+    public GameManager gameManager;
+
+    public GameObject TitleUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +18,15 @@ public class RetryButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void RetryButton()
     {
-        SceneManager.LoadScene("Main");
-        Time.timeScale = 1.0f;
-        score = 0;
+        gameManager.GameStart();
+        
+    }
+    public void HomeButton()
+    {
+        TitleUI.SetActive(true);
     }
 }

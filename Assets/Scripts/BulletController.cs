@@ -4,19 +4,10 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         //銃弾の動き
-        transform.Translate(0, 0.2f, 0);
+        transform.Translate(0, 0.2f * Time.timeScale, 0);
 
         if(transform.position.y > 5)
         {

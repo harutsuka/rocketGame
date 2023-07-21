@@ -1,22 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
     public GameObject PauseUI;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public GameManager gameManager;
+
     void Update()
     {
         
     }
-    public void OpenPanel()
+    public void PausePanel()
     {
         PauseUI.SetActive(!PauseUI.activeSelf);
 
@@ -29,5 +26,13 @@ public class PauseScript : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
-    
+
+    public void RetryButton()
+    {
+        gameManager.GameStart();
+    }
+    public void HomeButton()
+    {
+        SceneManager.LoadScene("Title");
+    }
 }

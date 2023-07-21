@@ -7,14 +7,6 @@ public class WallController : MonoBehaviour
     public float moveSpeed = 2f; // 初期移動速度
     public float acceleration = 2f; // 加速度
 
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         moveSpeed += acceleration * Time.deltaTime;
