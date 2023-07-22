@@ -87,6 +87,7 @@ public class RocketController : MonoBehaviour
     {
         Instantiate(bulletPrefab, new Vector3(rocket.transform.position.x, rocket.transform.position.y + 0.7f, rocket.transform.position.z), Quaternion.identity);
         audioSource.PlayOneShot(SE);
+        //rocket.GetComponent<AudioSource>().PlayOneShot(SE);
     }
 
     private void FixedUpdate()

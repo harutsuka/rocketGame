@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SEVolumeChange : MonoBehaviour
+public class SEVolumeChanger : MonoBehaviour
 {
     private AudioSource audioSource;
     public Slider slider;
@@ -14,11 +14,6 @@ public class SEVolumeChange : MonoBehaviour
 
         audioSource.volume = PlayerPrefs.GetFloat("Volume");
         slider.value = PlayerPrefs.GetFloat("Volume");
-    }
-
-    void Update()
-    {
-        
     }
 
     public void SoundSliderOnValueChange(float newSliderValue)

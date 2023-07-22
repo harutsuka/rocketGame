@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TitleScene();
         Time.timeScale = 1;
         CountDownTime = 20.0f;
     }
@@ -50,7 +49,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Main");
         score = 0;
         isPlaying = true;
-        Debug.Log(isPlaying);
+        Debug.Log("Start");
     }
 
     public void GameEnd()
