@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//隕石の動きをコントロールするスクリプト
 public class WallController : MonoBehaviour
 {
     public float moveSpeed = 2f; // 初期移動速度

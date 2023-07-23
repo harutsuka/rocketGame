@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class RockController : MonoBehaviour
 {
     int rockHP;
-    //int score;
     public GameObject explosionPrefab;
     public float rotationSpeed;
 
@@ -16,7 +15,6 @@ public class RockController : MonoBehaviour
     {
         rockHP = Random.Range(1, 6);
         rotationSpeed = Random.Range(-500, -50);
-
     }
 
     // Update is called once per frame

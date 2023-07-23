@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//タイトル画面関連のスクリプト
 public class GameStartScript : MonoBehaviour
 {
-    public GameObject StartButton;
-    public GameObject TitleUI;
-
     public GameManager gameManager;
 
     // Start is called before the first frame update
@@ -24,7 +22,6 @@ public class GameStartScript : MonoBehaviour
 
     public void ReadyToStart()
     {
-        TitleUI.SetActive(false);
         gameManager.GameStart();
     }
     

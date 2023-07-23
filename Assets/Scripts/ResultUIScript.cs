@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//リザルト画面関連のスクリプト
 public class ResultUIScript : MonoBehaviour
 {
     public GameManager gameManager;

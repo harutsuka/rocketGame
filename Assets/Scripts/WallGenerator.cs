@@ -2,20 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//隕石を生成するスクリプト
 public class WallGenerator : MonoBehaviour
 {
     public GameObject walls;
     private float timer = 0;
     private int interval = 3;
 
-    //bool isPlaying = GameManager.isPlaying;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
@@ -28,11 +21,5 @@ public class WallGenerator : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        //if(isPlaying == true)
-        //{
-
-        //}
-
     }
 }

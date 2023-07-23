@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//効果音の音量を制御するスクリプト
 public class SEVolumeChanger : MonoBehaviour
 {
     private AudioSource audioSource;
@@ -16,11 +17,13 @@ public class SEVolumeChanger : MonoBehaviour
         slider.value = PlayerPrefs.GetFloat("Volume");
     }
 
-    public void SoundSliderOnValueChange(float newSliderValue)
+    public void SoundSliderOnValueChange(float SEnewSliderValue)
     {
-        audioSource.volume = newSliderValue;
+        audioSource.volume = SEnewSliderValue;
 
-        PlayerPrefs.SetFloat("Volume", newSliderValue);
+        PlayerPrefs.SetFloat("Volume", SEnewSliderValue);
         PlayerPrefs.Save();
+
+        Debug.Log("SE: " + SEnewSliderValue);
     }
 }

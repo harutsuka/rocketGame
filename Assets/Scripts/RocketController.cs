@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//ロケットの動きを制御するスクリプト
 public class RocketController : MonoBehaviour
 {
     public GameObject bulletPrefab;
@@ -78,7 +79,6 @@ public class RocketController : MonoBehaviour
             {
                 heart1.SetActive(false);
                 gameManager.GameEnd();
-
             }
         }
     }

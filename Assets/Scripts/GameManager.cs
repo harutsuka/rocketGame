@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public float CountDownTime;
     public Text CountDownText;
 
-    public static bool isPlaying;
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;
@@ -28,7 +27,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         CountDownTime = 20.0f;
-        GameStart();
     }
 
     // Update is called once per frame
@@ -47,10 +45,8 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
+        SceneManager.LoadScene("Main");
         score = 0;
-        isPlaying = true;
-        Debug.Log("Start");
-        //Debug.Log(isPlaying);
     }
 
     public void GameEnd()
@@ -69,8 +65,7 @@ public class GameManager : MonoBehaviour
     }
     public void TitleScene()
     {
-        TitleUI.SetActive(true);
-        //isPlaying = false;
+        SceneManager.LoadScene("Title");
     }
 
 }

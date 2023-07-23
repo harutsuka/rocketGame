@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//BGMの音量を制御するスクリプト
 public class BGMVolumeChanger : MonoBehaviour
 {
     private AudioSource audioSource;
@@ -16,11 +17,13 @@ public class BGMVolumeChanger : MonoBehaviour
         slider.value = PlayerPrefs.GetFloat("Volume");
     }
 
-    public void SoundSliderOnValueChange(float newSliderValue)
+    public void SoundSliderOnValueChange(float BGMnewSliderValue)
     {
-        audioSource.volume = newSliderValue;
+        audioSource.volume = BGMnewSliderValue;
 
-        PlayerPrefs.SetFloat("Volume", newSliderValue);
+        PlayerPrefs.SetFloat("Volume", BGMnewSliderValue);
         PlayerPrefs.Save();
+
+        Debug.Log("BGM: " + BGMnewSliderValue);
     }
 }

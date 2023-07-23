@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//タイトル画面の背景の動きを制御するスクリプト
 public class TitleBackground : MonoBehaviour
 {
     void Update()

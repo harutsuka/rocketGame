@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//ポーズ画面関連のスクリプト
 public class PauseScript : MonoBehaviour
 {
     public GameObject PauseUI;
