@@ -24,6 +24,6 @@ public class BGMVolumeChanger : MonoBehaviour
         PlayerPrefs.SetFloat("Volume", BGMnewSliderValue);
         PlayerPrefs.Save();
 
-        Debug.Log("BGM: " + BGMnewSliderValue);
+        //Debug.Log("BGM: " + BGMnewSliderValue);
     }
 }

@@ -24,6 +24,6 @@ public class SEVolumeChanger : MonoBehaviour
         PlayerPrefs.SetFloat("Volume", SEnewSliderValue);
         PlayerPrefs.Save();
 
-        Debug.Log("SE: " + SEnewSliderValue);
+        //Debug.Log("SE: " + SEnewSliderValue);
     }
 }

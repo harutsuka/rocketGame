@@ -19,6 +19,7 @@ public class RocketController : MonoBehaviour
 
     private Vector3 direction;
     public FixedJoystick Joystick;
+    //public FloatingJoystick Joystick;
 
     public GameObject ResultUI;
     public Text ScoreText;
