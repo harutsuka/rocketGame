@@ -31,6 +31,9 @@ public class RocketController : MonoBehaviour
     public AudioClip SE;
     AudioSource audioSource;
 
+    float load_width = 6f;
+    Vector3 previousPos, currentPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +62,22 @@ public class RocketController : MonoBehaviour
         Vector3 currentPos = transform.position;
         currentPos.x = Mathf.Clamp(currentPos.x, -xLimit, xLimit);
         transform.position = currentPos;
+
+        //スワイプで動く
+        if (Input.GetMouseButtonDown(0))
+        {
+            previousPos = Input.mousePosition;
+        }
+        if (Input.GetMouseButton(0))
+        {
+            currentPos = Input.mousePosition;
+            float diffDistance = (currentPos.x - previousPos.x) / Screen.width * load_width;
+
+            float newX = Mathf.Clamp(transform.localPosition.x + diffDistance, -xLimit, xLimit);
+            transform.localPosition = new Vector3(newX, -3.5f, 0);
+
+            previousPos = currentPos;
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
