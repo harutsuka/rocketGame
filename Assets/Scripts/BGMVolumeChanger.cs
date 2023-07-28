@@ -13,17 +13,15 @@ public class BGMVolumeChanger : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
 
-        audioSource.volume = PlayerPrefs.GetFloat("Volume");
-        slider.value = PlayerPrefs.GetFloat("Volume");
+        audioSource.volume = PlayerPrefs.GetFloat("BGMVolume");
+        slider.value = PlayerPrefs.GetFloat("BGMVolume");
     }
 
     public void SoundSliderOnValueChange(float BGMnewSliderValue)
     {
         audioSource.volume = BGMnewSliderValue;
 
-        PlayerPrefs.SetFloat("Volume", BGMnewSliderValue);
+        PlayerPrefs.SetFloat("BGMVolume", BGMnewSliderValue);
         PlayerPrefs.Save();
-
-        //Debug.Log("BGM: " + BGMnewSliderValue);
     }
 }

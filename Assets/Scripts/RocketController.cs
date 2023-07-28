@@ -18,8 +18,6 @@ public class RocketController : MonoBehaviour
     public Text gameOverText;
 
     private Vector3 direction;
-    public FixedJoystick Joystick;
-    //public FloatingJoystick Joystick;
 
     public GameObject ResultUI;
     public Text ScoreText;
@@ -28,8 +26,7 @@ public class RocketController : MonoBehaviour
 
     public GameObject rocket;
 
-    public AudioClip SE;
-    AudioSource audioSource;
+    public SEPlayController SEPlayController;
 
     float load_width = 6f;
     Vector3 previousPos, currentPos;
@@ -37,7 +34,7 @@ public class RocketController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -55,7 +52,8 @@ public class RocketController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bulletPrefab, new Vector3(transform.position.x,transform.position.y + 0.7f,transform.position.z), Quaternion.identity);
-            audioSource.PlayOneShot(SE);
+            //audioSource.PlayOneShot(SE);
+            SEPlayController.PlaySE();
         }
 
         //動ける範囲の固定
@@ -74,7 +72,7 @@ public class RocketController : MonoBehaviour
             float diffDistance = (currentPos.x - previousPos.x) / Screen.width * load_width;
 
             float newX = Mathf.Clamp(transform.localPosition.x + diffDistance, -xLimit, xLimit);
-            transform.localPosition = new Vector3(newX, -3.5f, 0);
+            transform.localPosition = new Vector3(newX, -3.75f, 0);
 
             previousPos = currentPos;
         }
@@ -106,13 +104,7 @@ public class RocketController : MonoBehaviour
     public void Tap()
     {
         Instantiate(bulletPrefab, new Vector3(rocket.transform.position.x, rocket.transform.position.y + 0.7f, rocket.transform.position.z), Quaternion.identity);
-        audioSource.PlayOneShot(SE);
+        //audioSource.PlayOneShot(SE);
+        SEPlayController.PlaySE();
     }
-
-    private void FixedUpdate()
-    {
-        //Joystickの動き
-        direction = Vector3.forward * Joystick.Vertical + Vector3.right * Joystick.Horizontal;
-    }
-    
 }
