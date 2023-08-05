@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseScript : MonoBehaviour
 {
     public GameObject PauseUI;
-
+    
     public GameManager gameManager;
 
     void Update()
@@ -35,5 +35,6 @@ public class PauseScript : MonoBehaviour
     public void HomeButton()
     {
         gameManager.TitleScene();
+        
     }
 }
