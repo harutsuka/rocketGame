@@ -18,16 +18,24 @@ public class PauseScript : MonoBehaviour
 
     public void PausePanel()
     {
-        audioSource.PlayOneShot(audioClip);
-        PauseUI.SetActive(!PauseUI.activeSelf);
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            SEPlay();
 
-        if (PauseUI.activeSelf)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
+            DOVirtual.DelayedCall(audioClip.length - 0.8f, () =>
+              {
+                  PauseUI.SetActive(!PauseUI.activeSelf);
+
+                  if (PauseUI.activeSelf)
+                  {
+                      Time.timeScale = 0f;
+                  }
+                  else
+                  {
+                      Time.timeScale = 1f;
+                  }
+              });
         }
     }
 
@@ -36,9 +44,9 @@ public class PauseScript : MonoBehaviour
         if (!isProcessing)
         {
             isProcessing = true;
-            
             SEPlay();
-            DOVirtual.DelayedCall(audioClip.length, () =>
+
+            DOVirtual.DelayedCall(audioClip.length - 1f, () =>
             {
                 gameManager.GameStart();
                 isProcessing = false;
@@ -48,8 +56,17 @@ public class PauseScript : MonoBehaviour
     }
     public void HomeButton()
     {
-        gameManager.TitleScene();
-        audioSource.PlayOneShot(audioClip);
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            SEPlay();
+
+            DOVirtual.DelayedCall(audioClip.length - 1f, () =>
+             {
+                 gameManager.TitleScene();
+                 isProcessing = false;
+             });
+        }
     }
     public void SEPlay()
     {

@@ -7,11 +7,11 @@ public class SEPlayController : MonoBehaviour
 {
     public SEVolumeController volumeController;
     public AudioSource audioSource;
-    public AudioClip audioClip;
+    public AudioClip TapAudioClip;
 
     public void PlaySE()
     {
         audioSource.volume = volumeController.GetVolume();
-        audioSource.PlayOneShot(audioClip);
+        audioSource.PlayOneShot(TapAudioClip);
     }
 }
