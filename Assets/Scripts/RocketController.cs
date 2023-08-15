@@ -52,8 +52,7 @@ public class RocketController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bulletPrefab, new Vector3(transform.position.x,transform.position.y + 0.7f,transform.position.z), Quaternion.identity);
-            //audioSource.PlayOneShot(SE);
-            SEPlayController.PlaySE();
+            SEPlayController.BeamSE();
         }
 
         //動ける範囲の固定
@@ -104,7 +103,6 @@ public class RocketController : MonoBehaviour
     public void Tap()
     {
         Instantiate(bulletPrefab, new Vector3(rocket.transform.position.x, rocket.transform.position.y + 0.7f, rocket.transform.position.z), Quaternion.identity);
-        //audioSource.PlayOneShot(SE);
-        SEPlayController.PlaySE();
+        SEPlayController.BeamSE();
     }
 }

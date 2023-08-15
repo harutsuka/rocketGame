@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 //リザルト画面関連のスクリプト
 public class ResultUIScript : MonoBehaviour
 {
     public GameManager gameManager;
+
+    public SEPlayController SEPlayController;
+    private bool isProcessing;
+    public AudioClip ButtonAudioClip;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +27,30 @@ public class ResultUIScript : MonoBehaviour
     }
     public void RetryButton()
     {
-        gameManager.GameStart();
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            SEPlayController.ButtonSE();
+
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 1f, () =>
+            {
+                gameManager.GameStart();
+                isProcessing = false;
+            });
+        }
     }
     public void HomeButton()
     {
-        gameManager.TitleScene();
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            SEPlayController.ButtonSE();
+
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 1f, () =>
+            {
+                gameManager.TitleScene();
+                isProcessing = false;
+            });
+        }
     }
 }

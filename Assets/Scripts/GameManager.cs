@@ -12,10 +12,8 @@ public class GameManager : MonoBehaviour
     public Text ResultText;
     public GameObject ResultUI;
 
-    public int highScore = 0;
-    public Text highScoreText;
-
-    //public GameObject TitleUI;
+    public int bestScore = 0;
+    public Text bestScoreText;
 
     public float CountDownTime;
     public Text CountDownText;
@@ -29,7 +27,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        highScore = PlayerPrefs.GetInt("SCORE", 0);
+        bestScore = PlayerPrefs.GetInt("SCORE", 0);
         CountDownTime = 20.0f;
     }
 
@@ -63,13 +61,13 @@ public class GameManager : MonoBehaviour
         ResultUI.SetActive(true);
         ResultText.text = score.ToString();
 
-        if(highScore < score)
+        if(bestScore < score)
         {
-            highScore = score;
-            PlayerPrefs.SetInt("SCORE", highScore);
+            bestScore = score;
+            PlayerPrefs.SetInt("SCORE", bestScore);
             PlayerPrefs.Save();
         }
-        highScoreText.text = "HIGH SCORE : " + highScore.ToString();
+        bestScoreText.text = "BEST SCORE : " + bestScore.ToString();
     }
     public void AddScore()
     {
