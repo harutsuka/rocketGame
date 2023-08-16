@@ -20,5 +20,4 @@ public class SEPlayController : MonoBehaviour
     {
         audioSource.PlayOneShot(ButtonAudioClip);
     }
-    
 }
