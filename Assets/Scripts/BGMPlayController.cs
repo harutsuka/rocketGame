@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //BGMの音量を制御するスクリプト
-public class BGMVolumeChanger : MonoBehaviour
+public class BGMPlayController : MonoBehaviour
 {
     private AudioSource audioSource;
     public Slider slider;

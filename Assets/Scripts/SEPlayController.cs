@@ -18,6 +18,7 @@ public class SEPlayController : MonoBehaviour
     }
     public void ButtonSE()
     {
+        audioSource.volume = volumeController.GetVolume();
         audioSource.PlayOneShot(ButtonAudioClip);
     }
 }

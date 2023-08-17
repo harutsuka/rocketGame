@@ -14,17 +14,6 @@ public class ResultUIScript : MonoBehaviour
     private bool isProcessing;
     public AudioClip ButtonAudioClip;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void RetryButton()
     {
         if (!isProcessing)
@@ -32,7 +21,7 @@ public class ResultUIScript : MonoBehaviour
             isProcessing = true;
             SEPlayController.ButtonSE();
 
-            DOVirtual.DelayedCall(ButtonAudioClip.length - 1f, () =>
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
             {
                 gameManager.GameStart();
                 isProcessing = false;
@@ -46,7 +35,7 @@ public class ResultUIScript : MonoBehaviour
             isProcessing = true;
             SEPlayController.ButtonSE();
 
-            DOVirtual.DelayedCall(ButtonAudioClip.length - 1f, () =>
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
             {
                 gameManager.TitleScene();
                 isProcessing = false;

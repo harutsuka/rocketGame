@@ -6,11 +6,11 @@ using UnityEngine.UI;
 //効果音の音量を制御するスクリプト
 public class SEVolumeController : MonoBehaviour
 {
-    public Slider slider;
+    public Slider SESlider;
 
     void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("SEVolume");
+        SESlider.value = PlayerPrefs.GetFloat("SEVolume");
     }
 
     public void SoundSliderOnValueChange(float SEnewSliderValue)
