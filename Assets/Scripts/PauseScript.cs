@@ -47,7 +47,7 @@ public class PauseScript : MonoBehaviour
             isProcessing = true;
             SEPlayController.ButtonSE();
 
-            DOVirtual.DelayedCall(ButtonAudioClip.length - 1f, () =>
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
             {
                 gameManager.GameStart();
                 isProcessing = false;
@@ -61,7 +61,7 @@ public class PauseScript : MonoBehaviour
             isProcessing = true;
             SEPlayController.ButtonSE();
 
-            DOVirtual.DelayedCall(ButtonAudioClip.length - 1f, () =>
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
              {
                  gameManager.TitleScene();
                  isProcessing = false;
