@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        //Time.timeScale = 0;
         OpenResultPanel();
+        CountDownTime = 0f;
     }
     public void OpenResultPanel()
     {

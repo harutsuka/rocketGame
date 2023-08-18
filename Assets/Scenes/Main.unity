@@ -6002,7 +6002,7 @@ MonoBehaviour:
   ResultText: {fileID: 1199849974}
   ResultUI: {fileID: 1959449039}
   bestScore: 0
-  bestScoreText: {fileID: 0}
+  bestScoreText: {fileID: 2111828676}
   CountDownTime: 0
   CountDownText: {fileID: 830258434}
 --- !u!21 &2027857082
