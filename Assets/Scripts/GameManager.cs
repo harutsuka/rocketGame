@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public float CountDownTime;
     public Text CountDownText;
-
+    
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;

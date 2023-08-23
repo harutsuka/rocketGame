@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 //ロケットの動きを制御するスクリプト
 public class RocketController : MonoBehaviour
@@ -14,8 +15,6 @@ public class RocketController : MonoBehaviour
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
-
-    public Text gameOverText;
 
     private Vector3 direction;
 
