@@ -79,4 +79,18 @@ public class GameStartScript : MonoBehaviour
             });
         }
     }
+    public void CloseHowToPlayPanel()
+    {
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            SEPlayController.ButtonSE();
+
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
+             {
+                 howToPlayPanel.SetActive(false);
+                 isProcessing = false;
+             });
+        }
+    }
 }
