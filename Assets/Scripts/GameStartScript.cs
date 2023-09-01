@@ -15,6 +15,7 @@ public class GameStartScript : MonoBehaviour
 
     public GameObject startButton;
     public GameObject howToPlayButton;
+    public GameObject bigImage;
 
     private bool isProcessing;
     public AudioClip ButtonAudioClip;
@@ -91,6 +92,34 @@ public class GameStartScript : MonoBehaviour
                  howToPlayPanel.SetActive(false);
                  isProcessing = false;
              });
+        }
+    }
+    public void OpenBigImage()
+    {
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            SEPlayController.ButtonSE();
+
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
+            {
+                bigImage.SetActive(true);
+                isProcessing = false;
+            });
+        }
+    }
+    public void CloseBigImage()
+    {
+        if (!isProcessing)
+        {
+            isProcessing = true;
+            SEPlayController.ButtonSE();
+
+            DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
+            {
+                bigImage.SetActive(false);
+                isProcessing = false;
+            });
         }
     }
 }
