@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 //効果音の音量を制御するスクリプト
 public class SEVolumeController : MonoBehaviour

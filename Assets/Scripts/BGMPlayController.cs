@@ -8,7 +8,6 @@ public class BGMPlayController : MonoBehaviour
 {
     private AudioSource audioSource;
     public Slider slider;
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
