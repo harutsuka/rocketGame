@@ -27,7 +27,7 @@ public class PauseScript : MonoBehaviour
             DOVirtual.DelayedCall(ButtonAudioClip.length - 0.8f, () =>
               {
                   PauseUI.SetActive(!PauseUI.activeSelf);
-                  
+                  isProcessing = false;
                   if (PauseUI.activeSelf)
                   {
                       Time.timeScale = 0f;
