@@ -12,8 +12,8 @@ public class BGMPlayController : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
 
-        audioSource.volume = PlayerPrefs.GetFloat("BGMVolume");
-        slider.value = PlayerPrefs.GetFloat("BGMVolume");
+        audioSource.volume = PlayerPrefs.GetFloat("BGMVolume",0.5f);
+        slider.value = PlayerPrefs.GetFloat("BGMVolume",0.5f);
     }
 
     public void SoundSliderOnValueChange(float BGMnewSliderValue)

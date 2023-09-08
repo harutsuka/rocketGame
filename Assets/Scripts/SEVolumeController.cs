@@ -11,7 +11,7 @@ public class SEVolumeController : MonoBehaviour
 
     void Start()
     {
-        SESlider.value = PlayerPrefs.GetFloat("SEVolume");
+        SESlider.value = PlayerPrefs.GetFloat("SEVolume",0.5f);
     }
 
     public void SoundSliderOnValueChange(float SEnewSliderValue)
@@ -22,6 +22,6 @@ public class SEVolumeController : MonoBehaviour
 
     public float GetVolume()
     {
-        return PlayerPrefs.GetFloat("SEVolume");
+        return PlayerPrefs.GetFloat("SEVolume",0.5f);
     }
 }
