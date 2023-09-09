@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using unityroom.Api;
 
 public class GameManager : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
         }
         bestScoreText.text = "BEST SCORE : " + bestScore.ToString();
+        UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.HighScoreDesc);
     }
     public void AddScore()
     {
