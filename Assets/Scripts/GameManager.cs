@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
 
     public float CountDownTime;
     public Text CountDownText;
-
-    public bool isGamePlaying = false;
     
     private void Awake()
     {
@@ -48,30 +46,24 @@ public class GameManager : MonoBehaviour
                 GameEnd();
             }
 
-        if(Time.timeScale == 0)
-        {
-            isGamePlaying = false;
-        }
-        else
-        {
-            isGamePlaying = true;
-        }
+        
     }
 
     public void GameStart()
     {
         SceneManager.LoadScene("Main");
         score = 0;
-        isGamePlaying = true;
     }
 
     public void GameEnd()
     {
         OpenResultPanel();
         CountDownTime = 0f;
+        Time.timeScale = 0;
     }
     public void OpenResultPanel()
     {
+        Time.timeScale = 0;
         ResultUI.SetActive(true);
         ResultText.text = score.ToString();
 
@@ -84,6 +76,10 @@ public class GameManager : MonoBehaviour
         bestScoreText.text = "BEST SCORE : " + bestScore.ToString();
         UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.HighScoreDesc);
     }
+    public void DeleteBestScore()
+    {
+        PlayerPrefs.DeleteKey("SCORE");
+　    }
     public void AddScore()
     {
         score += 1;
