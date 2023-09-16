@@ -32,7 +32,7 @@ public class RocketController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-0.2f, 0, 0);
         }
@@ -43,8 +43,11 @@ public class RocketController : MonoBehaviour
         transform.Translate(direction.x * 0.2f, 0, 0);
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bulletPrefab, new Vector3(transform.position.x,transform.position.y + 0.7f,transform.position.z), Quaternion.identity);
-            SEPlayController.BeamSE();
+            if (Time.timeScale != 0)
+            {
+                Instantiate(bulletPrefab, new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), Quaternion.identity);
+                SEPlayController.BeamSE();
+            }
         }
 
         //動ける範囲の固定
@@ -67,8 +70,10 @@ public class RocketController : MonoBehaviour
 
             previousPos = currentPos;
         }
+
+
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("rock"))
@@ -76,11 +81,11 @@ public class RocketController : MonoBehaviour
             hp--;
             Destroy(collision.gameObject);
 
-            if(hp == 2)
+            if (hp == 2)
             {
                 heart3.SetActive(false);
             }
-            if(hp == 1)
+            if (hp == 1)
             {
                 heart2.SetActive(false);
             }
@@ -94,7 +99,10 @@ public class RocketController : MonoBehaviour
 
     public void Tap()
     {
-        Instantiate(bulletPrefab, new Vector3(rocket.transform.position.x, rocket.transform.position.y + 0.7f, rocket.transform.position.z), Quaternion.identity);
-        SEPlayController.BeamSE();
-    }
+        if (Time.timeScale != 0)
+        {
+            Instantiate(bulletPrefab, new Vector3(rocket.transform.position.x, rocket.transform.position.y + 0.7f, rocket.transform.position.z), Quaternion.identity);
+            SEPlayController.BeamSE();
+        }
+    } 
 }

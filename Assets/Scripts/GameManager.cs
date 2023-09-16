@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public float CountDownTime;
     public Text CountDownText;
+
+    public bool isGamePlaying = false;
     
     private void Awake()
     {
@@ -40,10 +42,19 @@ public class GameManager : MonoBehaviour
 
         //カウントダウン
         CountDownText.text = string.Format("{0:00.00}", CountDownTime);
-        CountDownTime -= Time.deltaTime;
-        if (CountDownTime <= 0)
+            CountDownTime -= Time.deltaTime;
+            if (CountDownTime <= 0)
+            {
+                GameEnd();
+            }
+
+        if(Time.timeScale == 0)
         {
-            GameEnd();
+            isGamePlaying = false;
+        }
+        else
+        {
+            isGamePlaying = true;
         }
     }
 
@@ -51,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
         score = 0;
+        isGamePlaying = true;
     }
 
     public void GameEnd()

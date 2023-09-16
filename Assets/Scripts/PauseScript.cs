@@ -17,6 +17,7 @@ public class PauseScript : MonoBehaviour
 
     private bool isProcessing = false;
 
+    
     public void OpenPausePanel()
     {
         if (!isProcessing)
