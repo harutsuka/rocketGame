@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using unityroom.Api;
+using NCMB;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
 
     public Text ResultText;
     public GameObject ResultUI;
-
-    public int bestScore = 0;
-    public Text bestScoreText;
 
     public float CountDownTime;
     public Text CountDownText;
@@ -29,7 +26,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        bestScore = PlayerPrefs.GetInt("SCORE", 0);
         CountDownTime = 20.0f;
     }
 
@@ -45,8 +41,6 @@ public class GameManager : MonoBehaviour
             {
                 GameEnd();
             }
-
-        
     }
 
     public void GameStart()
@@ -66,20 +60,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         ResultUI.SetActive(true);
         ResultText.text = score.ToString();
-
-        if(bestScore < score)
-        {
-            bestScore = score;
-            PlayerPrefs.SetInt("SCORE", bestScore);
-            PlayerPrefs.Save();
-        }
-        bestScoreText.text = "BEST SCORE : " + bestScore.ToString();
-        UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.HighScoreDesc);
     }
-    public void DeleteBestScore()
+    public void OpenRankingPanel()
     {
-        PlayerPrefs.DeleteKey("SCORE");
-　    }
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(score);
+    }
     public void AddScore()
     {
         score += 1;
