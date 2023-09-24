@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: be706873ed0f742f5b9cf9df1712e053
   - enabled: 1
     path: Assets/Scenes/Main.unity
-    guid: 42143e2af353b46ccaeb779b47cd1ccf
+    guid: 3c0b76d4eddec42b49062401c28aefe5
   - enabled: 1
     path: Assets/naichilab/unity-simple-ranking/Scenes/Ranking.unity
     guid: 152244f5855414ac4a3874f14efa583c
