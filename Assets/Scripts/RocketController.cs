@@ -32,11 +32,11 @@ public class RocketController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && Time.timeScale != 0)
         {
             transform.Translate(-0.2f, 0, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && Time.timeScale != 0)
         {
             transform.Translate(0.2f, 0, 0);
         }
@@ -66,8 +66,12 @@ public class RocketController : MonoBehaviour
             float diffDistance = (currentPos.x - previousPos.x) / Screen.width * load_width;
 
             float newX = Mathf.Clamp(transform.localPosition.x + diffDistance, -xLimit, xLimit);
-            transform.localPosition = new Vector3(newX, -3.75f, 0);
+            if (Time.timeScale != 0)
+            {
+                transform.localPosition = new Vector3(newX, -3.75f, 0);
 
+                
+            }
             previousPos = currentPos;
         }
 
